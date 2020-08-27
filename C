@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+void qsort2(int *a, int n){ //quick sort array a with n elements in place
+
+}
+
+void msort(int *a, int n){//merge sort array a with n elements in place
+
+}
+
+int main(void) {
+  
+  return 0;
+}

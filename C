@@ -1,7 +1,72 @@
 #include <stdio.h>
 
-void qsort2(int *a, int n){ //quick sort array a with n elements in place
-
+    // a is a pointer to the array to be sorted   
+    // n is the number of elements in the array
+void qsort2(int *a, int n){ 
+    int *i = a; // start of array
+    int *j = a + n; // end of array
+    int pivot = *i; // set pivot to value at the start of array
+    int temp; // temp variable for swapping
+    
+    // while i position is before j position (left side before right side)
+    while(i < j){ 
+        // while pivot value <= j value AND i position is before j postion 
+        // keeps decrementing from end of array until pivot is greater than j value
+        while(pivot <= *j && i < j){ 
+            // decrement j position
+            j--; 
+        }
+        
+        // if only the i position is before j position
+        // j value is less than pivot 
+        // moves j value to left of pivot
+        if(i < j){ 
+            // swap the value in i position with the value in j position
+            temp = *i;
+            *i = *j;
+            *j = temp;
+            // increment i position
+            i++; 
+        }
+        
+        // while i value <= pivot value AND i position is before j postion 
+        // keeps incrementing from start of array until i value is greater than pivot
+        while(*i <= pivot && i < j){ 
+            // increment i position
+            i++; 
+        }
+        
+        // if i position is before j position
+        // pivot is less than i value
+        // moves i value to right of pivot
+        if(i < j){ 
+            // swap the value in j position with the value in i position
+            temp = *j;
+            *j = *i;
+            *i = temp;
+            // decrement j position
+            j--; 
+        }
+    }
+    
+    // if i position and j position are the same (reached the middle)
+    if(i == j){
+        // i value (at the middle) now holds pivot value
+        *i = pivot;
+        // lower partition  
+        int low = i - a - 1;
+        // higher partition
+        int high = a + n - i - 1;
+        
+        // repeat sort at lower partition
+        // from the start of array
+        // to the position before the i position (middle)
+        qsort2(a, low);
+        // repeat sort at higher partition 
+        // from the position after the i position (middle)
+        // to the end of array
+        qsort2(i + 1, high);
+    }
 }
 
 void msort(int *a, int n){//merge sort array a with n elements in place
@@ -9,6 +74,25 @@ void msort(int *a, int n){//merge sort array a with n elements in place
 }
 
 int main(void) {
-  
+  // array of numbers
+  int nums[] = {5, 2, 8, 9, 1, 7, 3, 4, 6};
+  // size of array (number of elements)
+  int size = sizeof nums / sizeof *nums;
+    
+  // display initial order of array elements
+  printf("Initial Order: ");
+  for(int i = 0; i < size; i++){
+    printf("%d  ", nums[i]);
+  }
+    
+  // sort array
+  qsort2(nums, size - 1);
+    
+  // display sorted order of array elements
+  printf("\nSorted Order: ");
+  for(int i = 0; i < size; i++){
+    printf("%d  ", nums[i]);
+  }
+
   return 0;
 }

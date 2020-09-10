@@ -9,9 +9,9 @@ main =
 -- a is an instance of typeclass Ord (elements can be compared)
 quickSort :: (Ord a) => [a] -> [a]
 quickSort []  = [] -- empty list
-quickSort [x] = [x] -- necessary?
+quickSort [x] = [x] -- A list with a single element is simply returned
 -- nonempty list xs where left of pivot is compared to pivotFor
--- 		then compared with right of pivot
+-- 		then compared with right of pivot then concatenated all together
 quickSort xs  = quickSort lhs <> [pivot] <> quickSort rhs
   where
 	-- sets the pivot, xs (rest) for nonempty list xs using xs as parameter for pivotFor

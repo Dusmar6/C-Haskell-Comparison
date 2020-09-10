@@ -29,7 +29,7 @@ partition pivot xs = (lhs, pivot, rhs)
 	-- sets rhs (right of pivot) to values that do not satisfy predicate from elements of xs
     (lhs, rhs) = List.partition (< pivot) xs
 
--- pivotFor transforms of list of a elements into (a, [a]) of same type
+-- pivotFor transforms a list of a elements into (a, [a]) of same type
 pivotFor :: [a] -> (a, [a])
 -- assigns head element x as pivot and remaining elements as rest
 pivotFor (x:rest) = (x, rest)

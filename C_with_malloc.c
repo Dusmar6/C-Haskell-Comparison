@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <string.h>
     // a is a pointer to the array to be sorted
     // n is the number of elements in the array
 void qsort2(int *a, int n){
@@ -184,3 +185,4 @@ int main(void) {
   for(int i = 0; i < size1; i++){
     printf("%d  ", nums1[i]);
   }
+}

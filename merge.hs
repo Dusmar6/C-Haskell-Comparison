@@ -3,30 +3,30 @@ import Data.Function ((&))
 
 main :: IO ()
 main =
-  [4, 65, 2, -31, 0, 99, 2, 83, 782, 1] & merge_Sort & show & putStrLn
+  [4, 65, 2, -31, 0, 99, 2, 83, 782, 1] & msort & show & putStrLn
 
 -- Type declaration for the function merge_Sort which takes a list of integers
 -- and sorts them smallest to largest.
-merge_Sort :: Ord int => [int] -> [int]
+msort :: Ord a => [a] -> [a]
 
 -- If an empty list is given an empty list is returned.
-merge_Sort [] = []
+msort [] = []
 
 -- If a list with a single element is given it is returned.
-merge_Sort [x] = [x]
+msort [x] = [x]
 
 -- Otherwise call the helper function merge passing it a recursive call to
 -- merge_Sort with both the first and second half of xs.
-merge_Sort xs = merge (merge_Sort a) (merge_Sort b)
+msort xs = merge (msort left) (msort right)
   where
-    a = take (div (length xs) 2) xs -- a is defined as the first half of xs.
-    b = drop (div (length xs) 2) xs -- b is defined as the second half of xs.
+    left = take (div (length xs) 2) xs -- 'left' is defined as the first half of xs.
+    right = drop (div (length xs) 2) xs -- 'right' is defined as the second half of xs.
 
 
 -- Type declaration for the function merge_Sort which takes two lists of
 -- integers and outputs a sorted list of integers by combining the elements of
 -- the two unordered input lists together into one ordered list.
-merge :: Ord int => [int] -> [int] -> [int]
+merge :: Ord a => [a] -> [a] -> [a]
 
 -- if the second argument is an empty list return the first argument.
 merge xs [] = xs

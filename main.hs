@@ -1,6 +1,9 @@
+import Data.Function ((&))
+import qualified Data.List as List
+
 main :: IO ()
-main = print $
-    msort [4, 65, 2, -31, 0, 99, 2, 83, 782, 1]
+main =
+  [4, 65, 2, -31, 0, 99, 2, 83, 782, 1] & quickSort & show & putStrLn
 
 -- quicksort transforms list of a elements into list of same type
 -- a is an instance of typeclass Ord (elements can be compared)

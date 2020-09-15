@@ -2,8 +2,8 @@
 import Data.Function ((&))
 
 main :: IO ()
-main =
-  [4, 65, 2, -31, 0, 99, 2, 83, 782, 1] & msort & show & putStrLn
+main = print $
+    msort [4, 65, 2, -31, 0, 99, 2, 83, 782, 1]
 
 -- Type declaration for the function merge_Sort which takes a list of integers
 -- and sorts them smallest to largest.

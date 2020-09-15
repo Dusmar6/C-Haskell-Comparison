@@ -1,6 +1,4 @@
 
-import Data.Function ((&))
-
 main :: IO ()
 main = print $
     msort [4, 65, 2, -31, 0, 99, 2, 83, 782, 1]

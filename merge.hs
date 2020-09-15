@@ -1,4 +1,10 @@
 
+import Data.Function ((&))
+
+main :: IO ()
+main =
+  [4, 65, 2, -31, 0, 99, 2, 83, 782, 1] & merge_Sort & show & putStrLn
+
 -- Type declaration for the function merge_Sort which takes a list of integers
 -- and sorts them smallest to largest.
 merge_Sort :: Ord int => [int] -> [int]

@@ -2,8 +2,10 @@
 
 -- Input: list, Output: list 
 qsort :: (Ord a) => [a] -> [a] 
+
 -- If the list is empty, return the empty list
 qsort [] = []
+
 {-|
   - smaller (list): All elements in xs(tail), that are less than x(head).
   - bigger (list): All elements in xs(tail), that are greater than x(head).
